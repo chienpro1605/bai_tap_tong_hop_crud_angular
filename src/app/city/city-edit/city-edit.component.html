@@ -1,0 +1,36 @@
+<h1>Cập nhật thông tin sản phẩm</h1>
+<form [formGroup]="cityForm" (ngSubmit)="updateCity(id)">
+  <table>
+    <tr>
+      <td>name:</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td>area</td>
+      <td><input type="number" formControlName="area"></td>
+    </tr>
+    <tr>
+      <td>population:</td>
+      <td><input type="number" formControlName="population"></td>
+    </tr>
+    <tr>
+      <td>description:</td>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td>gdp:</td>
+      <td><input type="number" formControlName="gdp"></td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td><select formControlName="country">
+        <option disabled>Chọn danh mục quốc gia</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button>Cập nhật</button></td>
+    </tr>
+  </table>
+</form>

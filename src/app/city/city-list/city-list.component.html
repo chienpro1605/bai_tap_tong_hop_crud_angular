@@ -1,0 +1,32 @@
+<h1>Danh sách thành phố</h1>
+<a routerLink="/cities/create">Tạo mới city</a>
+<div>
+  <input type = "text" [(ngModel)]="name" (input)="getByName(name)">search
+</div>
+<div>
+<!--  <input type = "text" [(ngModel)]="name">-->
+<!--  <button (click)="getByName(name)">search</button>-->
+<!--</div>-->
+<table border="1">
+  <tr>
+    <td>STT</td>
+    <td>name</td>
+    <td>area</td>
+    <td>population</td>
+    <td>description</td>
+    <td>GDP</td>
+    <td>country</td>
+    <td colspan="2"></td>
+  </tr>
+  <tr *ngFor="let city of cities; index as i">
+    <td>{{i + 1}}</td>
+    <td><a [routerLink]="['/cities/detail',city.id]">{{city.name}}</a></td>
+    <td>{{city.area}}</td>
+    <td>{{city.population}}</td>
+    <td>{{city.description}}</td>
+    <td>{{city.gdp}}</td>
+    <td>{{city.country.name}}</td>
+    <td><a [routerLink]="['/cities/edit',city.id]">Edit</a></td>
+    <td><a [routerLink]="['/cities/delete',city.id]">Delete</a></td>
+  </tr>
+</table>
